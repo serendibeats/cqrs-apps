@@ -1,0 +1,9 @@
+server:
+  port: 9900
+spring:
+  application:
+    name: kafka-mongo
+  data:
+    mongodb:
+      database: job-service
+      uri: mongodb://localhost:27017

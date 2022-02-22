@@ -11,6 +11,11 @@
     <groupId>com.example</groupId>
     <artifactId>kafka-connect-practice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>project-service</module>
+        <module>session-service</module>
+    </modules>
     <name>kafka-connect-practice</name>
     <description>kafka-connect-practice</description>
     <properties>

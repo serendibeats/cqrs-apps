@@ -13,3 +13,6 @@ spring:
     url: jdbc:mysql://localhost:3306/project-service?createDatabaseIfNotExist=true
     username: root
     password: password
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
