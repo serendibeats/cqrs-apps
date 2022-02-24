@@ -1,2 +1,2 @@
 FROM mongo:latest
-COPY config-replica.js config-data.js /
+COPY config-replica.js /

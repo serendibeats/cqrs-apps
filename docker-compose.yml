@@ -1,5 +1,14 @@
 version: '3.8'
 services:
+  mysql:
+    image: mysql:latest
+    hostname: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: tas1234
   persist-setup:
     image: persist-setup
     hostname: persist-setup
@@ -22,7 +31,7 @@ services:
     entrypoint: [
       "bash",
       "-c",
-      "sleep 10 && mongo --host mongodb://mongo1:27017 config-replica.js && sleep 10 && mongo --host mongodb://mongo1:27017 config-data.js",
+      "sleep 10 && mongo --host mongodb://mongo1:27017 config-replica.js",
     ]
     restart: "no"
   mongo1:

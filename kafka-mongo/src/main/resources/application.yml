@@ -7,3 +7,6 @@ spring:
     mongodb:
       database: job-service
       uri: mongodb://localhost:27017
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092

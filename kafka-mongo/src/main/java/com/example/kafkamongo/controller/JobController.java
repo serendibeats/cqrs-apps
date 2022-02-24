@@ -1,16 +1,16 @@
 package com.example.kafkamongo.controller;
 
+import com.example.kafkamongo.model.Job;
 import com.example.kafkamongo.model.JobEntity;
+import com.example.kafkamongo.model.RequestJob;
 import com.example.kafkamongo.model.ResponseJob;
 import com.example.kafkamongo.service.JobService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,5 +42,18 @@ public class JobController {
         });
 
         return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @PostMapping("/jobs")
+    ResponseEntity<ResponseJob> createJob(@RequestBody RequestJob job) {
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        Job jobDto = mapper.map(job, Job.class);
+        Job createdJob = jobService.createJob(jobDto);
+
+        ResponseJob responseJob = mapper.map(createdJob, ResponseJob.class);
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseJob);
     }
 }

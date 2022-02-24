@@ -14,7 +14,7 @@ import java.util.Map;
 @Service
 @Slf4j
 public class KafkaConsumer {
-    @KafkaListener(topics = "source-projects")
+    @KafkaListener(topics = "job-service.jobs")
     public void createSession(String message) {
         log.info("Message(projects-updated): ->" + message);
 

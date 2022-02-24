@@ -1,11 +1,11 @@
 {
-  "name": "mongo-sink",
+  "name": "mongo-sink-cdc",
   "config": {
     "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
     "connection.uri": "mongodb://mongo1",
     "change.data.capture.handler": "com.mongodb.kafka.connect.sink.cdc.mongodb.ChangeStreamHandler",
-    "database": "quickstart",
-    "collection": "sink",
-    "topics": "quickstart.source"
+    "database": "job-service",
+    "collection": "jobs",
+    "topics": "job-service.cdc"
   }
 }

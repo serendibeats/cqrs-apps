@@ -3,12 +3,15 @@
   "config": {
     "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
     "connection.uri": "mongodb://mongo1",
-    "database": "quickstart",
-    "collection": "sink",
-    "topics": "quickstart.source",
+    "database": "job-service",
+    "collection": "jobs",
+    "topics": "job-service.sink",
+    "output.format.value":"schema",
+    "output.format.key":"schema",
+    "output.schema.infer.value":"true",
+    "key.converter.schemas.enable":"true",
+    "value.converter.schemas.enable":"true",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "value.converter.schemas.enable": "false",
-    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "key.converter.schemas.enable": "false"
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter"
   }
 }

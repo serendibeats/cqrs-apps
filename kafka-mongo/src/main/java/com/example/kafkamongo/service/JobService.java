@@ -8,4 +8,5 @@ import java.util.List;
 public interface JobService {
     List<JobEntity> getJobByAll();
     Job getJobByJobId(String jobId);
+    Job createJob(Job job);
 }
